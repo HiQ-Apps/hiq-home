@@ -28,6 +28,30 @@ export type Service = {
   description: string;
 };
 
+export type Work = {
+  title: string;
+  description: string;
+  href: string;
+  tags: string[];
+};
+
+export const works: Work[] = [
+  {
+    title: "Flora & Flame",
+    description:
+      "A direct-to-consumer storefront for an Oakland craft cannabis cultivator — strain education, terpene profiles, and dispensary sourcing built around a living-soil, slow-grown brand story.",
+    href: "https://floraflame.vercel.app",
+    tags: ["Web Design", "E-commerce"],
+  },
+  {
+    title: "The Good Standard",
+    description:
+      "An editorial and lifestyle site for sustainable living — sustainable fashion, natural design, and eco-friendly home upgrades built around thoughtful consumption and enduring style.",
+    href: "https://thegoodstandard.org",
+    tags: ["Web Design", "Editorial"],
+  },
+];
+
 export const services: Service[] = [
   {
     icon: Boxes,

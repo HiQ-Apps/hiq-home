@@ -11,7 +11,7 @@ export function Contact() {
       <div className="mx-auto max-w-5xl">
         <SectionReveal>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            03 — Contact
+            04 — Contact
           </p>
         </SectionReveal>
 
@@ -26,10 +26,10 @@ export function Contact() {
             href={`mailto:${site.email}`}
             whileHover={{ x: 4 }}
             transition={{ duration: 0.2 }}
-            className="group mt-10 inline-flex items-baseline gap-2 text-3xl font-medium text-foreground sm:text-4xl"
+            className="group mt-10 inline-flex flex-wrap items-baseline gap-2 break-all text-2xl font-medium text-foreground sm:text-3xl md:text-4xl"
           >
             {site.email}
-            <ArrowUpRight className="size-6 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="size-5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:size-6" />
           </motion.a>
         </SectionReveal>
 

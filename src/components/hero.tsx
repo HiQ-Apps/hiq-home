@@ -37,14 +37,41 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="flex min-h-svh flex-col justify-center px-6 pt-24"
+      className="relative flex min-h-svh flex-col justify-center overflow-hidden px-6 pt-24"
     >
-      <div className="mx-auto w-full max-w-5xl">
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -left-24 top-1/4 size-72 rounded-full bg-primary/20 blur-3xl"
+        animate={{
+          x: [0, 40, -20, 0],
+          y: [0, -30, 20, 0],
+          scale: [1, 1.15, 0.95, 1],
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -right-32 bottom-0 size-96 rounded-full bg-accent-foreground/10 blur-3xl"
+        animate={{
+          x: [0, -30, 25, 0],
+          y: [0, 25, -15, 0],
+          scale: [1, 0.9, 1.1, 1],
+        }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <div className="relative mx-auto w-full max-w-5xl">
         <motion.p
           initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary"
+          animate={{
+            opacity: 1,
+            y: [0, -3, 0],
+          }}
+          transition={{
+            opacity: { duration: 0.5 },
+            y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
+          }}
+          className="mb-6 inline-block font-mono text-xs uppercase tracking-[0.2em] text-primary"
         >
           {site.name} — Software Studio
         </motion.p>
@@ -77,12 +104,21 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 1.05 }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
-          <Button size="lg" render={<a href="#contact" />}>
-            Get in touch
-          </Button>
-          <Button size="lg" variant="outline" render={<a href="#work" />}>
-            See our work
-          </Button>
+          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+            <Button size="lg" nativeButton={false} render={<a href="#contact" />}>
+              Get in touch
+            </Button>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+            <Button
+              size="lg"
+              variant="outline"
+              nativeButton={false}
+              render={<a href="#work" />}
+            >
+              See our work
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -90,8 +126,9 @@ export function Hero() {
         href="#about"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        whileHover={{ y: -2 }}
         transition={{ duration: 0.6, delay: 1.4 }}
-        className="mx-auto mt-16 flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+        className="relative mx-auto mt-16 flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
         aria-label="Scroll to About"
       >
         <span className="font-mono text-[10px] uppercase tracking-widest">

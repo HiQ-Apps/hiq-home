@@ -7,11 +7,11 @@ import { services } from "@/lib/content";
 
 export function Services() {
   return (
-    <section id="work" className="px-6 py-28">
+    <section id="services" className="px-6 py-28">
       <div className="mx-auto max-w-5xl">
         <SectionReveal>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            02 — What we do
+            03 — What we do
           </p>
         </SectionReveal>
 
