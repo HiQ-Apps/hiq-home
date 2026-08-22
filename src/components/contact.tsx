@@ -2,26 +2,28 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { SectionBlobs } from "@/components/section-blobs";
 import { SectionReveal } from "@/components/section-reveal";
 import { site, socials } from "@/lib/content";
 
 export function Contact() {
   return (
-    <section id="contact" className="px-6 py-28">
-      <div className="mx-auto max-w-5xl">
-        <SectionReveal>
+    <section id="contact" className="relative overflow-hidden px-6 py-28">
+      <SectionBlobs variant="b" />
+      <div className="relative mx-auto max-w-5xl">
+        <SectionReveal variant="blur">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            04 — Contact
+            05 / Contact
           </p>
         </SectionReveal>
 
-        <SectionReveal delay={0.05}>
+        <SectionReveal variant="blur" delay={0.05}>
           <h2 className="mt-4 max-w-xl text-2xl font-medium leading-snug text-foreground sm:text-3xl">
             Have a project in mind? Get in touch.
           </h2>
         </SectionReveal>
 
-        <SectionReveal delay={0.1}>
+        <SectionReveal variant="blur" delay={0.1}>
           <motion.a
             href={`mailto:${site.email}`}
             whileHover={{ x: 4 }}
@@ -33,24 +35,29 @@ export function Contact() {
           </motion.a>
         </SectionReveal>
 
-        <SectionReveal delay={0.15}>
-          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-border pt-8">
+        <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-border pt-8">
+          <SectionReveal variant="blur" delay={0.15}>
             <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               {site.location}
             </span>
-            {socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-primary"
-              >
-                {social.label}
-              </a>
-            ))}
-          </div>
-        </SectionReveal>
+          </SectionReveal>
+          {socials.map((social, i) => (
+            <motion.a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.4, delay: 0.18 + i * 0.06 }}
+              className="font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-primary"
+            >
+              {social.label}
+            </motion.a>
+          ))}
+        </div>
       </div>
     </section>
   );

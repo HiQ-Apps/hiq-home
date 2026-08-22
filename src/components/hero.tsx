@@ -1,16 +1,27 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import type { MouseEvent } from "react";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import gsap from "gsap";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Magnetic } from "@/components/magnetic";
 import { site } from "@/lib/content";
 
 const headlineWords = site.tagline.split(" ");
 
 export function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
+  const spotlightX = useMotionValue(50);
+  const spotlightY = useMotionValue(30);
+  const spotlight = useMotionTemplate`radial-gradient(600px circle at ${spotlightX}% ${spotlightY}%, rgba(31,107,82,0.14), transparent 70%)`;
+
+  function handleMouseMove(e: MouseEvent<HTMLElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    spotlightX.set(((e.clientX - rect.left) / rect.width) * 100);
+    spotlightY.set(((e.clientY - rect.top) / rect.height) * 100);
+  }
 
   useEffect(() => {
     if (!headlineRef.current) return;
@@ -37,8 +48,14 @@ export function Hero() {
   return (
     <section
       id="top"
+      onMouseMove={handleMouseMove}
       className="relative flex min-h-svh flex-col justify-center overflow-hidden px-6 pt-24"
     >
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{ background: spotlight }}
+      />
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -left-24 top-1/4 size-72 rounded-full bg-primary/20 blur-3xl"
@@ -73,7 +90,7 @@ export function Hero() {
           }}
           className="mb-6 inline-block font-mono text-xs uppercase tracking-[0.2em] text-primary"
         >
-          {site.name} — Software Studio
+          {site.name}, Software Studio
         </motion.p>
 
         <h1
@@ -104,21 +121,25 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 1.05 }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-            <Button size="lg" nativeButton={false} render={<a href="#contact" />}>
-              Get in touch
-            </Button>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-            <Button
-              size="lg"
-              variant="outline"
-              nativeButton={false}
-              render={<a href="#work" />}
-            >
-              See our work
-            </Button>
-          </motion.div>
+          <Magnetic>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <Button size="lg" nativeButton={false} render={<a href="#contact" />}>
+                Get in touch
+              </Button>
+            </motion.div>
+          </Magnetic>
+          <Magnetic>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <Button
+                size="lg"
+                variant="outline"
+                nativeButton={false}
+                render={<a href="#work" />}
+              >
+                See our work
+              </Button>
+            </motion.div>
+          </Magnetic>
         </motion.div>
       </div>
 
