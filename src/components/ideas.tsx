@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionBlobs } from "@/components/section-blobs";
 import { SectionReveal } from "@/components/section-reveal";
+import { TextureReveal } from "@/components/texture-reveal";
 import { useTilt } from "@/lib/use-tilt";
 import { ideas, type Idea } from "@/lib/content";
 
@@ -97,6 +98,14 @@ export function Ideas() {
             From content sites to full-stack products, here&apos;s where we
             spend most of our time.
           </p>
+        </SectionReveal>
+
+        <SectionReveal variant="rotate" delay={0.1}>
+          <TextureReveal
+            variant="ideas"
+            radius={280}
+            className="mt-10 aspect-[21/9]"
+          />
         </SectionReveal>
 
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">

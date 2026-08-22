@@ -6,12 +6,14 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionBlobs } from "@/components/section-blobs";
 import { SectionReveal } from "@/components/section-reveal";
+import { BrowserVisual } from "@/components/section-visual";
 import { useTilt } from "@/lib/use-tilt";
 import { works, type Work as WorkItem } from "@/lib/content";
 
 function WorkCard({ work, index }: { work: WorkItem; index: number }) {
   const { ref, rotateX, rotateY, onMouseMove, onMouseLeave } =
     useTilt<HTMLAnchorElement>(4);
+  const flip = index % 2 === 1;
 
   return (
     <SectionReveal variant="scale" delay={0.08 * index}>
@@ -28,7 +30,12 @@ function WorkCard({ work, index }: { work: WorkItem; index: number }) {
         className="group block"
       >
         <Card className="border-border/80 bg-card/60 transition-colors group-hover:border-primary/40">
-          <CardContent className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
+          <CardContent
+            className={`grid gap-6 p-6 sm:grid-cols-2 sm:items-center ${
+              flip ? "sm:[&>*:first-child]:order-last" : ""
+            }`}
+          >
+            <BrowserVisual title={work.href.replace(/^https?:\/\//, "")} />
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-lg font-medium text-foreground">

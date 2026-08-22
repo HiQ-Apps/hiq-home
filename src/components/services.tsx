@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionBlobs } from "@/components/section-blobs";
 import { SectionReveal } from "@/components/section-reveal";
+import { ServicesVisual } from "@/components/section-visual";
 import { useTilt } from "@/lib/use-tilt";
 import { services, type Service } from "@/lib/content";
 
@@ -47,23 +48,29 @@ export function Services() {
   return (
     <section id="services" className="relative overflow-hidden px-6 py-28">
       <SectionBlobs variant="a" />
-      <div className="relative mx-auto max-w-5xl">
-        <SectionReveal variant="right">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            04 / What we do
-          </p>
+      <div className="relative mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <SectionReveal variant="left" delay={0.1}>
+          <ServicesVisual />
         </SectionReveal>
 
-        <SectionReveal variant="right" delay={0.05}>
-          <h2 className="mt-4 max-w-xl text-2xl font-medium leading-snug text-foreground sm:text-3xl">
-            Capabilities
-          </h2>
-        </SectionReveal>
+        <div>
+          <SectionReveal variant="right">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+              04 / What we do
+            </p>
+          </SectionReveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {services.map((service, i) => (
-            <ServiceCard key={service.title} service={service} index={i} />
-          ))}
+          <SectionReveal variant="right" delay={0.05}>
+            <h2 className="mt-4 max-w-xl text-2xl font-medium leading-snug text-foreground sm:text-3xl">
+              Capabilities
+            </h2>
+          </SectionReveal>
+
+          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {services.map((service, i) => (
+              <ServiceCard key={service.title} service={service} index={i} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
