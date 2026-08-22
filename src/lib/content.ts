@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Boxes, Cloud, Leaf, Repeat2, Shirt, Smartphone, Sparkles, Sprout } from "lucide-react";
+import { BookOpen, Boxes, Building2, Cloud, Layers, ShoppingCart, Smartphone, Sparkles } from "lucide-react";
 
 export const site = {
   name: "HiQ-Apps",
@@ -57,37 +57,37 @@ export type Idea = {
   icon: LucideIcon;
   title: string;
   description: string;
-  inspiredBy: string;
+  tag: string;
 };
 
 export const ideas: Idea[] = [
   {
-    icon: Leaf,
-    title: "Strain Match",
+    icon: BookOpen,
+    title: "Blogs & Editorial",
     description:
-      "A quiz-driven app that pairs customers with strains and terpene profiles based on the effects they want, synced live to dispensary inventory.",
-    inspiredBy: "Flora & Flame",
+      "Content-first sites built for readers: fast pages, clean typography, and a CMS your team can actually use without our help.",
+    tag: "Frontend",
   },
   {
-    icon: Sprout,
-    title: "Grow Journal",
+    icon: ShoppingCart,
+    title: "E-commerce",
     description:
-      "A living-soil cultivation log for home growers: feeding schedules, soil health notes, and harvest history in one place.",
-    inspiredBy: "Flora & Flame",
+      "Storefronts, product catalogs, and checkout flows tuned for conversion, from a handful of SKUs to a full inventory.",
+    tag: "Full-stack",
   },
   {
-    icon: Shirt,
-    title: "Mend or Replace",
+    icon: Building2,
+    title: "Business Sites",
     description:
-      "A wardrobe app that tracks garment care and cost-per-wear, nudging you to repair natural-fiber pieces instead of replacing them.",
-    inspiredBy: "The Good Standard",
+      "Brochure sites and landing pages that make a strong first impression and turn visitors into leads.",
+    tag: "Frontend",
   },
   {
-    icon: Repeat2,
-    title: "Swap Standard",
+    icon: Layers,
+    title: "Full-Stack Apps",
     description:
-      "A local swap-and-resell marketplace for secondhand sustainable fashion, built around the same raise-your-standard ethos.",
-    inspiredBy: "The Good Standard",
+      "Dashboards, internal tools, and products with real logic behind them, databases, auth, and everything in between.",
+    tag: "Full-stack",
   },
 ];
 

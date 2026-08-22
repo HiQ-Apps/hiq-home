@@ -21,14 +21,29 @@ function IdeaCard({ idea, index }: { idea: Idea; index: number }) {
         whileHover={{ y: -4 }}
         style={{ rotateX, rotateY, transformPerspective: 1000 }}
         transition={{ duration: 0.25, ease: "easeOut" }}
-        className="group h-full"
+        className="group relative h-full"
       >
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute -inset-px -z-10 rounded-xl bg-gradient-to-br from-primary/40 via-primary/0 to-primary/40 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100"
+        />
         <Card className="h-full border-border/80 bg-card/60 transition-colors hover:border-primary/40">
           <CardContent className="flex h-full flex-col gap-4 p-6">
-            <idea.icon
-              className="size-5 text-primary transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110"
-              strokeWidth={1.75}
-            />
+            <motion.div
+              className="flex size-10 items-center justify-center rounded-lg bg-primary/10"
+              animate={{ scale: [1, 1.08, 1] }}
+              transition={{
+                duration: 3.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: index * 0.3,
+              }}
+            >
+              <idea.icon
+                className="size-5 text-primary transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110"
+                strokeWidth={1.75}
+              />
+            </motion.div>
             <div className="flex flex-1 flex-col">
               <h3 className="text-base font-medium text-foreground">
                 {idea.title}
@@ -36,8 +51,21 @@ function IdeaCard({ idea, index }: { idea: Idea; index: number }) {
               <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {idea.description}
               </p>
-              <Badge variant="outline" className="mt-4 w-fit">
-                Inspired by {idea.inspiredBy}
+              <Badge
+                variant="outline"
+                className="mt-4 w-fit gap-1.5 overflow-hidden"
+              >
+                <motion.span
+                  className="size-1.5 rounded-full bg-primary"
+                  animate={{ opacity: [0.4, 1, 0.4] }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: index * 0.2,
+                  }}
+                />
+                {idea.tag}
               </Badge>
             </div>
           </CardContent>
@@ -60,14 +88,14 @@ export function Ideas() {
 
         <SectionReveal variant="rotate" delay={0.05}>
           <h2 className="mt-4 max-w-xl text-2xl font-medium leading-snug text-foreground sm:text-3xl">
-            Spin-offs we&apos;d love to build
+            What we build
           </h2>
         </SectionReveal>
 
         <SectionReveal variant="rotate" delay={0.08}>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            A few app concepts that grew out of client work, the kind of
-            thing we&apos;d build next if the right partner showed up.
+            From content sites to full-stack products, here&apos;s where we
+            spend most of our time.
           </p>
         </SectionReveal>
 
