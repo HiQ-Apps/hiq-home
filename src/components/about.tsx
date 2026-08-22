@@ -1,7 +1,7 @@
 import { SectionReveal } from "@/components/section-reveal";
 
 const stats = [
-  { label: "Founded", value: "2023" },
+  { label: "Founded", value: "2026" },
   { label: "Shipped", value: "20+ products" },
   { label: "Based", value: "Remote-first" },
 ];
