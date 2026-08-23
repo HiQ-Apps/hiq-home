@@ -7,8 +7,18 @@ import { SectionReveal } from "@/components/section-reveal";
 import { ServicesVisual } from "@/components/section-visual";
 import { useTilt } from "@/lib/use-tilt";
 import { services, type Service } from "@/lib/content";
+import { useI18n } from "@/lib/i18n/context";
+import type { Translations } from "@/lib/i18n/translations";
 
-function ServiceCard({ service, index }: { service: Service; index: number }) {
+function ServiceCard({
+  service,
+  copy,
+  index,
+}: {
+  service: Service;
+  copy: Translations["services"]["items"][number];
+  index: number;
+}) {
   const { ref, rotateX, rotateY, onMouseMove, onMouseLeave } =
     useTilt<HTMLDivElement>(6);
 
@@ -31,10 +41,10 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
             />
             <div>
               <h3 className="text-base font-medium text-foreground">
-                {service.title}
+                {copy.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {service.description}
+                {copy.description}
               </p>
             </div>
           </CardContent>
@@ -45,6 +55,8 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 }
 
 export function Services() {
+  const { t } = useI18n();
+
   return (
     <section id="services" className="relative overflow-hidden px-6 py-28">
       <SectionBlobs variant="a" />
@@ -56,19 +68,24 @@ export function Services() {
         <div>
           <SectionReveal variant="right">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-              04 / What we do
+              04 / {t.services.eyebrow}
             </p>
           </SectionReveal>
 
           <SectionReveal variant="right" delay={0.05}>
             <h2 className="mt-4 max-w-xl text-2xl font-medium leading-snug text-foreground sm:text-3xl">
-              Capabilities
+              {t.services.heading}
             </h2>
           </SectionReveal>
 
           <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {services.map((service, i) => (
-              <ServiceCard key={service.title} service={service} index={i} />
+              <ServiceCard
+                key={service.title}
+                service={service}
+                copy={t.services.items[i]}
+                index={i}
+              />
             ))}
           </div>
         </div>

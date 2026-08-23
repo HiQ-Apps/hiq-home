@@ -1,9 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { navLinks, site } from "@/lib/content";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { site } from "@/lib/content";
+import { useI18n } from "@/lib/i18n/context";
 
 export function Nav() {
+  const { t } = useI18n();
+  const navLinks = [
+    { key: "about", href: "#about", label: t.nav.about },
+    { key: "work", href: "#work", label: t.nav.work },
+    { key: "ideas", href: "#ideas", label: t.nav.ideas },
+    { key: "contact", href: "#contact", label: t.nav.contact },
+  ];
+
   return (
     <motion.header
       initial={{ y: -24, opacity: 0 }}
@@ -14,23 +24,34 @@ export function Nav() {
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
         <a
           href="#top"
-          className="font-mono text-sm font-medium tracking-tight text-foreground"
+          className="group flex items-center gap-2 font-mono text-sm font-medium tracking-tight text-foreground"
         >
+          <span className="relative flex size-1.5">
+            <motion.span
+              className="absolute inline-flex size-full rounded-full bg-primary"
+              animate={{ scale: [1, 2.2], opacity: [0.7, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }}
+            />
+            <span className="relative inline-flex size-1.5 rounded-full bg-primary" />
+          </span>
           {site.name}
         </a>
-        <ul className="flex items-center gap-4 sm:gap-6">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="group relative inline-block font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground sm:text-xs"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100" />
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-4 sm:gap-6">
+          <ul className="flex items-center gap-4 sm:gap-6">
+            {navLinks.map((link) => (
+              <li key={link.key}>
+                <a
+                  href={link.href}
+                  className="group relative inline-block font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground sm:text-xs"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <LanguageSwitcher />
+        </div>
       </nav>
     </motion.header>
   );

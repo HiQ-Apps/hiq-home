@@ -4,14 +4,15 @@ import { useEffect, useRef } from "react";
 import type { MouseEvent } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import gsap from "gsap";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/magnetic";
 import { site } from "@/lib/content";
-
-const headlineWords = site.tagline.split(" ");
+import { useI18n } from "@/lib/i18n/context";
 
 export function Hero() {
+  const { t } = useI18n();
+  const headlineWords = t.hero.tagline.split(" ");
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const spotlightX = useMotionValue(50);
   const spotlightY = useMotionValue(30);
@@ -43,7 +44,7 @@ export function Hero() {
     return () => {
       tl.kill();
     };
-  }, []);
+  }, [t.hero.tagline]);
 
   return (
     <section
@@ -90,7 +91,7 @@ export function Hero() {
           }}
           className="mb-6 inline-block font-mono text-xs uppercase tracking-[0.2em] text-primary"
         >
-          {site.name}, Software Studio
+          {site.name}, {t.hero.eyebrowSuffix}
         </motion.p>
 
         <h1
@@ -112,7 +113,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.9 }}
           className="mt-6 max-w-xl text-lg text-muted-foreground"
         >
-          {site.blurb}
+          {t.hero.blurb}
         </motion.p>
 
         <motion.div
@@ -122,10 +123,23 @@ export function Hero() {
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <Magnetic>
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+            <motion.div
+              className="group relative"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+            >
               <Button size="lg" nativeButton={false} render={<a href="#contact" />}>
-                Get in touch
+                {t.hero.ctaPrimary}
               </Button>
+              <motion.span
+                aria-hidden
+                className="pointer-events-none absolute -right-2 -top-2 text-primary opacity-0 group-hover:opacity-100"
+                initial={{ scale: 0, rotate: -20 }}
+                whileHover={{ scale: 1, rotate: 0 }}
+                transition={{ duration: 0.3, ease: "backOut" }}
+              >
+                <Sparkles className="size-4" fill="currentColor" />
+              </motion.span>
             </motion.div>
           </Magnetic>
           <Magnetic>
@@ -136,7 +150,7 @@ export function Hero() {
                 nativeButton={false}
                 render={<a href="#work" />}
               >
-                See our work
+                {t.hero.ctaSecondary}
               </Button>
             </motion.div>
           </Magnetic>
@@ -153,7 +167,7 @@ export function Hero() {
         aria-label="Scroll to About"
       >
         <span className="font-mono text-[10px] uppercase tracking-widest">
-          Scroll
+          {t.hero.scroll}
         </span>
         <motion.span
           animate={{ y: [0, 6, 0] }}

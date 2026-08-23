@@ -4,6 +4,7 @@ import { AmbientField } from "@/components/three/ambient-field";
 import { Nav } from "@/components/nav";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { site, socials } from "@/lib/content";
+import { I18nProvider } from "@/lib/i18n/context";
 import { siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
@@ -76,10 +77,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <ScrollProgress />
-        <AmbientField />
-        <Nav />
-        {children}
+        <I18nProvider>
+          <ScrollProgress />
+          <AmbientField />
+          <Nav />
+          {children}
+        </I18nProvider>
       </body>
     </html>
   );

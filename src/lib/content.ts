@@ -10,13 +10,6 @@ export const site = {
   location: "Remote, Worldwide",
 };
 
-export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
-  { label: "Ideas", href: "#ideas" },
-  { label: "Contact", href: "#contact" },
-];
-
 export const socials = [
   { label: "GitHub", href: "https://github.com/hiq-apps" },
   { label: "LinkedIn", href: "https://linkedin.com/company/hiq-apps" },

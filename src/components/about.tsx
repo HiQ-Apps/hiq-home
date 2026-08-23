@@ -5,20 +5,13 @@ import { AnimatedStatValue } from "@/components/animated-stat";
 import { SectionBlobs } from "@/components/section-blobs";
 import { SectionReveal } from "@/components/section-reveal";
 import { TextureReveal } from "@/components/texture-reveal";
-
-const stats = [
-  { label: "Founded", value: "2026" },
-  { label: "Shipped", value: "20+ products" },
-  { label: "Based", value: "Remote-first" },
-];
-
-const valueProps = [
-  "Senior-only team",
-  "Transparent, fair pricing",
-  "Fast, focused delivery",
-];
+import { useI18n } from "@/lib/i18n/context";
 
 export function About() {
+  const { t } = useI18n();
+  const stats = t.about.stats;
+  const valueProps = t.about.valueProps;
+
   return (
     <section id="about" className="relative overflow-hidden px-6 py-28">
       <SectionBlobs variant="a" />
@@ -26,15 +19,13 @@ export function About() {
         <div>
           <SectionReveal variant="left">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-              01 / About
+              01 / {t.about.eyebrow}
             </p>
           </SectionReveal>
 
           <SectionReveal variant="left" delay={0.05}>
             <h2 className="mt-4 max-w-2xl text-2xl font-medium leading-snug text-foreground sm:text-3xl">
-              A small, senior team that prefers finished work over busywork.
-              Clean code, considered design, and honest pricing from people
-              who've shipped this stuff before.
+              {t.about.heading}
             </h2>
           </SectionReveal>
 

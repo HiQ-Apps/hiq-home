@@ -8,8 +8,18 @@ import { SectionReveal } from "@/components/section-reveal";
 import { TextureReveal } from "@/components/texture-reveal";
 import { useTilt } from "@/lib/use-tilt";
 import { ideas, type Idea } from "@/lib/content";
+import { useI18n } from "@/lib/i18n/context";
+import type { Translations } from "@/lib/i18n/translations";
 
-function IdeaCard({ idea, index }: { idea: Idea; index: number }) {
+function IdeaCard({
+  idea,
+  copy,
+  index,
+}: {
+  idea: Idea;
+  copy: Translations["ideas"]["items"][number];
+  index: number;
+}) {
   const { ref, rotateX, rotateY, onMouseMove, onMouseLeave } =
     useTilt<HTMLDivElement>(6);
 
@@ -47,10 +57,10 @@ function IdeaCard({ idea, index }: { idea: Idea; index: number }) {
             </motion.div>
             <div className="flex flex-1 flex-col">
               <h3 className="text-base font-medium text-foreground">
-                {idea.title}
+                {copy.title}
               </h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {idea.description}
+                {copy.description}
               </p>
               <Badge
                 variant="outline"
@@ -66,7 +76,7 @@ function IdeaCard({ idea, index }: { idea: Idea; index: number }) {
                     delay: index * 0.2,
                   }}
                 />
-                {idea.tag}
+                {copy.tag}
               </Badge>
             </div>
           </CardContent>
@@ -77,26 +87,27 @@ function IdeaCard({ idea, index }: { idea: Idea; index: number }) {
 }
 
 export function Ideas() {
+  const { t } = useI18n();
+
   return (
     <section id="ideas" className="relative overflow-hidden px-6 py-28">
       <SectionBlobs variant="b" />
       <div className="relative mx-auto max-w-5xl">
         <SectionReveal variant="rotate">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            03 / Ideas
+            03 / {t.ideas.eyebrow}
           </p>
         </SectionReveal>
 
         <SectionReveal variant="rotate" delay={0.05}>
           <h2 className="mt-4 max-w-xl text-2xl font-medium leading-snug text-foreground sm:text-3xl">
-            What we build
+            {t.ideas.heading}
           </h2>
         </SectionReveal>
 
         <SectionReveal variant="rotate" delay={0.08}>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            From content sites to full-stack products, here&apos;s where we
-            spend most of our time.
+            {t.ideas.subheading}
           </p>
         </SectionReveal>
 
@@ -110,7 +121,7 @@ export function Ideas() {
 
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {ideas.map((idea, i) => (
-            <IdeaCard key={idea.title} idea={idea} index={i} />
+            <IdeaCard key={idea.title} idea={idea} copy={t.ideas.items[i]} index={i} />
           ))}
         </div>
       </div>
