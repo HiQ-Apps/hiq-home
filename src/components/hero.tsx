@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/magnetic";
+import { AmbientField } from "@/components/three/ambient-field";
 import { site } from "@/lib/content";
 import { useI18n } from "@/lib/i18n/context";
 
@@ -52,6 +53,7 @@ export function Hero() {
       onMouseMove={handleMouseMove}
       className="relative flex min-h-svh flex-col justify-center overflow-hidden px-6 pt-24"
     >
+      <AmbientField />
       <motion.div
         aria-hidden
         className="pointer-events-none absolute inset-0"

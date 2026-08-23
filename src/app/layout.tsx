@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { AmbientField } from "@/components/three/ambient-field";
 import { Nav } from "@/components/nav";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { site, socials } from "@/lib/content";
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "HiQ-Apps | Software Studio",
   description:
-    "HiQ-Apps is a small, senior software studio designing and engineering web and mobile products at studio-friendly rates. See our work and get in touch.",
+    "HiQ-Apps is a dedicated software studio designing and engineering web and mobile products at studio-friendly rates. See our work and get in touch.",
   keywords: [
     "software studio",
     "web development agency",
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "HiQ-Apps | Software Studio",
     description:
-      "HiQ-Apps is a small, senior software studio designing and engineering web and mobile products at studio-friendly rates.",
+      "HiQ-Apps is a dedicated software studio designing and engineering web and mobile products at studio-friendly rates.",
     url: siteUrl,
     siteName: "HiQ-Apps",
     type: "website",
@@ -47,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "HiQ-Apps | Software Studio",
     description:
-      "HiQ-Apps is a small, senior software studio designing and engineering web and mobile products at studio-friendly rates.",
+      "HiQ-Apps is a dedicated software studio designing and engineering web and mobile products at studio-friendly rates.",
   },
   robots: {
     index: true,
@@ -79,7 +78,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <I18nProvider>
           <ScrollProgress />
-          <AmbientField />
           <Nav />
           {children}
         </I18nProvider>

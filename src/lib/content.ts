@@ -3,9 +3,9 @@ import { BookOpen, Boxes, Building2, Cloud, Layers, ShoppingCart, Smartphone, Sp
 
 export const site = {
   name: "HiQ-Apps",
-  tagline: "Senior-level software, without the agency price tag.",
+  tagline: "Professional software, without the agency price tag.",
   blurb:
-    "HiQ-Apps is a small, senior team designing and engineering web and mobile products people actually enjoy using. We move fast, price fairly, and sweat every detail so you don't have to.",
+    "HiQ-Apps is a dedicated team designing and engineering web and mobile products people actually enjoy using. We move fast, price fairly, and sweat every detail so you don't have to.",
   email: "hello@hiq-apps.com",
   location: "Remote, Worldwide",
 };

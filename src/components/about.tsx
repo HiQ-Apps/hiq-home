@@ -5,6 +5,7 @@ import { AnimatedStatValue } from "@/components/animated-stat";
 import { SectionBlobs } from "@/components/section-blobs";
 import { SectionReveal } from "@/components/section-reveal";
 import { TextureReveal } from "@/components/texture-reveal";
+import { InvertReveal } from "@/components/invert-reveal";
 import { useI18n } from "@/lib/i18n/context";
 
 export function About() {
@@ -51,14 +52,17 @@ export function About() {
               {stats.map((stat) => (
                 <motion.div
                   key={stat.label}
+                  className="group"
                   whileHover={{ y: -3 }}
                   transition={{ duration: 0.2 }}
                 >
                   <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
                     {stat.label}
                   </p>
-                  <p className="mt-2 text-xl font-medium text-foreground">
-                    <AnimatedStatValue value={stat.value} />
+                  <p className="mt-2 text-xl font-medium">
+                    <InvertReveal className="text-foreground">
+                      <AnimatedStatValue value={stat.value} />
+                    </InvertReveal>
                   </p>
                 </motion.div>
               ))}

@@ -88,7 +88,7 @@ export function AmbientField() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 opacity-70 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_20%,black,transparent)]"
+      className="pointer-events-none absolute inset-0 -z-10 opacity-70 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_20%,black,transparent)]"
     >
       <Canvas
         camera={{ position: [0, 0, 8], fov: 45 }}

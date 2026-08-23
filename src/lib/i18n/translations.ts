@@ -59,9 +59,9 @@ export const translations: Record<Lang, Translations> = {
     nav: { about: "About", work: "Work", ideas: "Ideas", contact: "Contact" },
     hero: {
       eyebrowSuffix: "Software Studio",
-      tagline: "Senior-level software, without the agency price tag.",
+      tagline: "Professional software, without the agency price tag.",
       blurb:
-        "HiQ-Apps is a small, senior team designing and engineering web and mobile products people actually enjoy using. We move fast, price fairly, and sweat every detail so you don't have to.",
+        "HiQ-Apps is a dedicated team designing and engineering web and mobile products people actually enjoy using. We move fast, price fairly, and sweat every detail so you don't have to.",
       ctaPrimary: "Get in touch",
       ctaSecondary: "See our work",
       scroll: "Scroll",
@@ -69,14 +69,14 @@ export const translations: Record<Lang, Translations> = {
     about: {
       eyebrow: "About",
       heading:
-        "A small, senior team that prefers finished work over busywork. Clean code, considered design, and honest pricing from people who've shipped this stuff before.",
+        "A dedicated team that prefers finished work over busywork. Clean code, considered design, and honest pricing from people who've shipped this stuff before.",
       valueProps: [
-        "Senior-only team",
+        "Dedicated team",
         "Transparent, fair pricing",
         "Fast, focused delivery",
       ],
       stats: [
-        { label: "Founded", value: "2026" },
+        { label: "Founded", value: "2024" },
         { label: "Shipped", value: "20+ products" },
         { label: "Based", value: "Remote-first" },
       ],
@@ -167,9 +167,9 @@ export const translations: Record<Lang, Translations> = {
     nav: { about: "Nosotros", work: "Trabajo", ideas: "Ideas", contact: "Contacto" },
     hero: {
       eyebrowSuffix: "Estudio de Software",
-      tagline: "Software de nivel senior, sin el precio de agencia.",
+      tagline: "Software profesional, sin el precio de agencia.",
       blurb:
-        "HiQ-Apps es un equipo pequeño y senior que diseña y desarrolla productos web y móviles que a la gente le encanta usar. Nos movemos rápido, cobramos con justicia y cuidamos cada detalle para que tú no tengas que hacerlo.",
+        "HiQ-Apps es un equipo dedicado que diseña y desarrolla productos web y móviles que a la gente le encanta usar. Nos movemos rápido, cobramos con justicia y cuidamos cada detalle para que tú no tengas que hacerlo.",
       ctaPrimary: "Contáctanos",
       ctaSecondary: "Ver nuestro trabajo",
       scroll: "Desplázate",
@@ -177,14 +177,14 @@ export const translations: Record<Lang, Translations> = {
     about: {
       eyebrow: "Nosotros",
       heading:
-        "Un equipo pequeño y senior que prefiere el trabajo terminado antes que el ajetreo. Código limpio, diseño cuidado y precios honestos de gente que ya ha lanzado esto antes.",
+        "Un equipo dedicado que prefiere el trabajo terminado antes que el ajetreo. Código limpio, diseño cuidado y precios honestos de gente que ya ha lanzado esto antes.",
       valueProps: [
-        "Equipo cien por ciento senior",
+        "Equipo totalmente dedicado",
         "Precios justos y transparentes",
         "Entrega rápida y enfocada",
       ],
       stats: [
-        { label: "Fundada", value: "2026" },
+        { label: "Fundada", value: "2024" },
         { label: "Lanzados", value: "20+ productos" },
         { label: "Sede", value: "100% remoto" },
       ],
@@ -275,9 +275,9 @@ export const translations: Record<Lang, Translations> = {
     nav: { about: "À propos", work: "Travaux", ideas: "Idées", contact: "Contact" },
     hero: {
       eyebrowSuffix: "Studio Logiciel",
-      tagline: "Du logiciel de niveau senior, sans le prix d'une agence.",
+      tagline: "Du logiciel professionnel, sans le prix d'une agence.",
       blurb:
-        "HiQ-Apps est une petite équipe senior qui conçoit et développe des produits web et mobiles que les gens aiment vraiment utiliser. Nous allons vite, facturons honnêtement et soignons chaque détail pour que vous n'ayez pas à le faire.",
+        "HiQ-Apps est une équipe dévouée qui conçoit et développe des produits web et mobiles que les gens aiment vraiment utiliser. Nous allons vite, facturons honnêtement et soignons chaque détail pour que vous n'ayez pas à le faire.",
       ctaPrimary: "Nous contacter",
       ctaSecondary: "Voir nos réalisations",
       scroll: "Défiler",
@@ -285,14 +285,14 @@ export const translations: Record<Lang, Translations> = {
     about: {
       eyebrow: "À propos",
       heading:
-        "Une petite équipe senior qui préfère le travail terminé à l'agitation. Du code propre, un design réfléchi et des prix honnêtes, par des gens qui ont déjà livré ce genre de projet.",
+        "Une équipe dévouée qui préfère le travail terminé à l'agitation. Du code propre, un design réfléchi et des prix honnêtes, par des gens qui ont déjà livré ce genre de projet.",
       valueProps: [
-        "Équipe 100% senior",
+        "Équipe entièrement dévouée",
         "Tarifs justes et transparents",
         "Livraison rapide et ciblée",
       ],
       stats: [
-        { label: "Fondée", value: "2026" },
+        { label: "Fondée", value: "2024" },
         { label: "Livrés", value: "20+ produits" },
         { label: "Basée", value: "100% à distance" },
       ],
@@ -383,9 +383,9 @@ export const translations: Record<Lang, Translations> = {
     nav: { about: "关于", work: "作品", ideas: "创意", contact: "联系" },
     hero: {
       eyebrowSuffix: "软件工作室",
-      tagline: "资深水准的软件开发，没有代理商的高昂价格。",
+      tagline: "专业水准的软件开发，没有代理商的高昂价格。",
       blurb:
-        "HiQ-Apps 是一支精干的资深团队，专注于设计和开发人们真正喜欢使用的网页与移动产品。我们行动迅速、定价公道，并把每一个细节都打磨到位，让你无需操心。",
+        "HiQ-Apps 是一支专注的团队，致力于设计和开发人们真正喜欢使用的网页与移动产品。我们行动迅速、定价公道，并把每一个细节都打磨到位，让你无需操心。",
       ctaPrimary: "联系我们",
       ctaSecondary: "查看作品",
       scroll: "向下滚动",
@@ -393,10 +393,10 @@ export const translations: Record<Lang, Translations> = {
     about: {
       eyebrow: "关于我们",
       heading:
-        "一支精干的资深团队，更看重完成的作品，而非忙碌的表象。来自曾多次成功交付项目的人们，带来干净的代码、周全的设计和诚实的定价。",
-      valueProps: ["全员资深团队", "透明公道的定价", "快速专注的交付"],
+        "一支专注的团队，更看重完成的作品，而非忙碌的表象。来自曾多次成功交付项目的人们，带来干净的代码、周全的设计和诚实的定价。",
+      valueProps: ["全心投入的团队", "透明公道的定价", "快速专注的交付"],
       stats: [
-        { label: "成立于", value: "2026" },
+        { label: "成立于", value: "2024" },
         { label: "已交付", value: "20+ 个产品" },
         { label: "所在地", value: "全远程办公" },
       ],

@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { SectionBlobs } from "@/components/section-blobs";
 import { SectionReveal } from "@/components/section-reveal";
 import { TextureReveal } from "@/components/texture-reveal";
+import { InvertReveal } from "@/components/invert-reveal";
 import { useTilt } from "@/lib/use-tilt";
 import { ideas, type Idea } from "@/lib/content";
 import { useI18n } from "@/lib/i18n/context";
@@ -56,8 +57,10 @@ function IdeaCard({
               />
             </motion.div>
             <div className="flex flex-1 flex-col">
-              <h3 className="text-base font-medium text-foreground">
-                {copy.title}
+              <h3 className="text-base font-medium">
+                <InvertReveal className="text-foreground">
+                  {copy.title}
+                </InvertReveal>
               </h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {copy.description}
