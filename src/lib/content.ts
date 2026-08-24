@@ -44,6 +44,13 @@ export const works: Work[] = [
     href: "https://thegoodstandard.org",
     tags: ["Web Design", "Editorial"],
   },
+  {
+    title: "Git Universe",
+    description:
+      "A visual explorer for Git repositories, mapping commits, branches, and contributor activity into an interactive, navigable universe.",
+    href: "https://git-universe-nine.vercel.app",
+    tags: ["Web App", "Developer Tools"],
+  },
 ];
 
 export type Idea = {
