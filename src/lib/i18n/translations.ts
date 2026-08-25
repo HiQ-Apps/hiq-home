@@ -26,6 +26,7 @@ export type Translations = {
     items: [
       { description: string; tags: [string, string] },
       { description: string; tags: [string, string] },
+      { description: string; tags: [string, string] },
     ];
   };
   ideas: {
@@ -94,6 +95,11 @@ export const translations: Record<Lang, Translations> = {
           description:
             "An editorial and lifestyle site for sustainable living, covering sustainable fashion, natural design, and eco-friendly home upgrades built around thoughtful consumption.",
           tags: ["Web Design", "Editorial"],
+        },
+        {
+          description:
+            "A visual explorer for Git repositories, mapping commits, branches, and contributor activity into an interactive, navigable universe.",
+          tags: ["Web App", "Developer Tools"],
         },
       ],
     },
@@ -203,6 +209,11 @@ export const translations: Record<Lang, Translations> = {
             "Un sitio editorial y de estilo de vida sobre sostenibilidad, que cubre moda sostenible, diseño natural y mejoras ecológicas para el hogar, construido en torno al consumo consciente.",
           tags: ["Diseño web", "Editorial"],
         },
+        {
+          description:
+            "Un explorador visual de repositorios de Git que transforma commits, ramas y actividad de colaboradores en un universo interactivo y navegable.",
+          tags: ["Aplicación web", "Herramientas para desarrolladores"],
+        },
       ],
     },
     ideas: {
@@ -311,6 +322,11 @@ export const translations: Record<Lang, Translations> = {
             "Un site éditorial et lifestyle dédié à la vie durable, couvrant la mode responsable, le design naturel et les améliorations écologiques de l'habitat, construit autour d'une consommation réfléchie.",
           tags: ["Design web", "Éditorial"],
         },
+        {
+          description:
+            "Un explorateur visuel de dépôts Git qui transforme commits, branches et activité des contributeurs en un univers interactif et navigable.",
+          tags: ["Application web", "Outils pour développeurs"],
+        },
       ],
     },
     ideas: {
@@ -414,6 +430,11 @@ export const translations: Record<Lang, Translations> = {
           description:
             "一个关注可持续生活方式的编辑型网站，涵盖可持续时尚、自然设计和环保家居升级，围绕理性消费理念构建。",
           tags: ["网页设计", "编辑内容"],
+        },
+        {
+          description:
+            "一个 Git 仓库可视化探索工具，将提交、分支和贡献者活动映射成一个可交互、可导航的宇宙。",
+          tags: ["网页应用", "开发者工具"],
         },
       ],
     },
