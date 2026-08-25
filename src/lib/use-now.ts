@@ -1,21 +1,10 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
-
-function subscribe(callback: () => void) {
-  const id = setInterval(callback, 1000);
-  return () => clearInterval(id);
-}
-
-function getSnapshot() {
-  return Date.now();
-}
-
-function getServerSnapshot() {
-  return 0;
-}
+import { useState } from "react";
 
 export function useNow(): Date | null {
-  const ms = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-  return ms ? new Date(ms) : null;
+  const [now] = useState<Date | null>(() =>
+    typeof window === "undefined" ? null : new Date(),
+  );
+  return now;
 }
