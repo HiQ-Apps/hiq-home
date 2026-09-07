@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useSyncExternalStore } from "react";
+import { useRef, useSyncExternalStore } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import * as THREE from "three";
@@ -32,33 +32,16 @@ function useIsDark() {
 function ClockScene({ timeString }: { timeString: string }) {
   const groupRef = useRef<THREE.Group>(null);
   const ringRef = useRef<THREE.Mesh>(null);
-  const prevSecond = useRef(timeString.slice(-2));
-  const flip = useRef(0);
   const isDark = useIsDark();
   const color = isDark ? "#5eead4" : "#1f6b52";
 
-  useEffect(() => {
-    const second = timeString.slice(-2);
-    if (second !== prevSecond.current) {
-      prevSecond.current = second;
-      flip.current = 1;
-    }
-  }, [timeString]);
-
-  useFrame((state, delta) => {
+  useFrame((state) => {
     const t = state.clock.getElapsedTime();
     if (groupRef.current) {
-      groupRef.current.position.y = Math.sin(t * 0.6) * 0.12;
-      groupRef.current.rotation.y = Math.sin(t * 0.25) * 0.18;
-      if (flip.current > 0) {
-        groupRef.current.rotation.x = -0.35;
-        flip.current = 0;
-      }
-      groupRef.current.rotation.x = THREE.MathUtils.lerp(
-        groupRef.current.rotation.x,
-        0,
-        Math.min(delta * 8, 1),
-      );
+      // Gentle vertical breathing only. The old yaw swing (~10deg) pushed the
+      // glyphs visibly left/right under the perspective camera, which read as
+      // the clock "jumping around".
+      groupRef.current.position.y = Math.sin(t * 0.5) * 0.05;
     }
     if (ringRef.current) {
       ringRef.current.rotation.z = t * 0.12;
