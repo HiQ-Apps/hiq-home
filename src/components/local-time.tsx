@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { SectionReveal } from "@/components/section-reveal";
 import { LocalTimeClock } from "@/components/three/local-time-clock";
 import { useI18n } from "@/lib/i18n/context";
@@ -16,7 +16,19 @@ export function LocalTime() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.55, 1.4, 0.7]);
+  // Raw scroll progress is stepwise (one jump per wheel tick) and the old
+  // grow-then-shrink keyframes made the clock lurch. Keep the scale range
+  // gentle and monotonic, then spring it so scrolling reads as a glide.
+  const scaleTarget = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [0.9, 1.05, 0.95],
+  );
+  const scale = useSpring(scaleTarget, {
+    stiffness: 120,
+    damping: 30,
+    mass: 0.5,
+  });
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.15, 0.85, 1],
